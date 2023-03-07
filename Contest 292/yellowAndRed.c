@@ -1,18 +1,12 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main(void)
 {
 
     int number_of_players;
     int number_of_events;
-    char *line = NULL;
-    size_t size = 0;
+    scanf("%d %d", &number_of_players, &number_of_events);
 
-    getline(&line, &size, stdin);
-    char *events_endptr;
-    number_of_players = (int) strtol(line, &events_endptr, 10);
-    number_of_events = (int) strtol(events_endptr, NULL, 10);
 
     int player_scores[number_of_players];
     for(size_t i = 0; i <  number_of_players; i++) {
@@ -20,11 +14,9 @@ int main(void)
     }
 
     for(size_t i = 0; i < number_of_events; ++i) {
-        getline(&line, &size, stdin);
-
-        char *endptr;
-        int action = (int) strtol(line, &endptr, 10);
-        int player_number = (int) strtol(endptr, NULL, 10);
+        int action;
+        int player_number;
+        scanf("%d %d", &action, &player_number);
         --player_number;
 
         switch(action) {
